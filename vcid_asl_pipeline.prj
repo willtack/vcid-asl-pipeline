@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="804835382" file="/project/detre/wtackett/Gears/vcid-asl-pipeline/vcid_asl_pipeline.prj" location="/project/detre/wtackett/Gears/vcid-asl-pipeline" name="vcid_asl_pipeline" preferred-package-location="/project/detre/wtackett/Gears/vcid-asl-pipeline/vcid_asl_pipeline/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="3558109280" file="/project/detre/wtackett/Gears/vcid-asl-pipeline/vcid_asl_pipeline.prj" location="/project/detre/wtackett/Gears/vcid-asl-pipeline" name="vcid_asl_pipeline" preferred-package-location="/project/detre/wtackett/Gears/vcid-asl-pipeline/vcid_asl_pipeline/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>vcid_asl_pipeline</param.appname>
     <param.icon />
     <param.icons />
@@ -50,8 +50,8 @@ ${LD_LIBRARY_PATH}:MR/v99/runtime/glnxa64:MR/v99/bin/glnxa64:MR/v99/sys/os/glnxa
     <param.checkbox>false</param.checkbox>
     <param.example />
     <param.help.text>Syntax 
-	 main -? 
-	 main datadir 
+	 vcid_main -? 
+	 vcid_main datadir 
  Input Arguments 
 	 -?  print help on how to use the application 
 	 datadir  input arguments</param.help.text>
@@ -89,7 +89,7 @@ ${LD_LIBRARY_PATH}:MR/v99/runtime/glnxa64:MR/v99/bin/glnxa64:MR/v99/sys/os/glnxa
       <param.example />
     </unset>
     <fileset.main>
-      <file>${PROJECT_ROOT}/src/main.m</file>
+      <file>${PROJECT_ROOT}/src/vcid_main.m</file>
     </fileset.main>
     <fileset.resources>
       <file>${PROJECT_ROOT}/src/SCRUBdenoising.m</file>
@@ -108,7 +108,6 @@ ${LD_LIBRARY_PATH}:MR/v99/runtime/glnxa64:MR/v99/bin/glnxa64:MR/v99/sys/os/glnxa
       <file>${PROJECT_ROOT}/src/check_epi_reg.m</file>
       <file>${PROJECT_ROOT}/src/compress_nii_files.m</file>
       <file>${PROJECT_ROOT}/src/fill_in_holes_inside_brain.m</file>
-      <file>${PROJECT_ROOT}/src/main.m</file>
       <file>${PROJECT_ROOT}/src/my_genpath.m</file>
       <file>${PROJECT_ROOT}/src/my_spm_select.m</file>
       <file>${PROJECT_ROOT}/src/myimshow3D.m</file>

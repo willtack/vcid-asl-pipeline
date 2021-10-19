@@ -1,29 +1,29 @@
 <html><meta charset="UTF-8"><pre>
-<font color=blue>mcc -o vcid_asl_pipeline -W main:vcid_asl_pipeline -T link:exe -d /project/detre/wtackett/Gears/vcid-asl-pipeline/vcid_asl_pipeline/for_testing -v /project/detre/wtackett/Gears/vcid-asl-pipeline/src/main.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_CBF_computation.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_coreg_asl2MPRAGE.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_coreg_asl2MPRAGE_FLIRT.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_create_mask.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_extract_M0.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_fnirt.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_MNI_2_sub_masks.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_realign.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_reslice_CBF_t1space.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_segment.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_smooth_CBF.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_warp_EPI2MNI.m -a /project/detre/wtackett/spm12/matlabbatch/cfg_getfile.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/check_epi_reg.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/compress_nii_files.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/fill_in_holes_inside_brain.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/main.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/my_genpath.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/my_spm_select.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/myimshow3D.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/SCRUBdenoising.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/setparameter.m -a /project/detre/wtackett/spm12/spm.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/spm_read_niigz_vol.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/spm_realign_asl.m </font>
+<font color=blue>mcc -o vcid_asl_pipeline -W main:vcid_asl_pipeline -T link:exe -d /project/detre/wtackett/Gears/vcid-asl-pipeline/vcid_asl_pipeline/for_testing -v /project/detre/wtackett/Gears/vcid-asl-pipeline/src/vcid_main.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_CBF_computation.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_coreg_asl2MPRAGE.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_coreg_asl2MPRAGE_FLIRT.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_create_mask.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_extract_M0.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_fnirt.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_MNI_2_sub_masks.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_realign.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_reslice_CBF_t1space.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_segment.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_smooth_CBF.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/batch_warp_EPI2MNI.m -a /project/detre/wtackett/spm12/matlabbatch/cfg_getfile.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/check_epi_reg.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/compress_nii_files.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/fill_in_holes_inside_brain.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/my_genpath.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/my_spm_select.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/myimshow3D.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/SCRUBdenoising.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/setparameter.m -a /project/detre/wtackett/spm12/spm.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/spm_read_niigz_vol.m -a /project/detre/wtackett/Gears/vcid-asl-pipeline/src/spm_realign_asl.m </font>
 Compiler version: 8.1 (R2020b)
 
 Analyzing file dependencies. 
 
 Warning: In "/project/detre/wtackett/spm12/matlabbatch/@cfg_entry/subsasgn_check.m", "subs" are excluded from packaging for the MATLAB Runtime environment according to the MATLAB Compiler license. Either remove the file or function from your code, or use the MATLAB function "isdeployed" to ensure the function is not invoked in the deployed component.
-Parsing file "/project/detre/wtackett/Gears/vcid-asl-pipeline/src/main.m"
+Parsing file "/project/detre/wtackett/Gears/vcid-asl-pipeline/src/vcid_main.m"
 	(referenced from command line).
 Deleting temporary MEX authorization files...
-Removing: '/tmp/e160-2d12-69e4-8cbe_44876.auth'.
-Removing: '/tmp/3b6d-c10f-2416-4a65_44876.auth'.
-Removing: '/tmp/0cd4-4c46-38f9-ee7b_44876.auth'.
-Removing: '/tmp/4815-b864-4214-5bc1_44876.auth'.
-Removing: '/tmp/438d-8538-ed86-8d2e_44876.auth'.
-Removing: '/tmp/261c-0850-8b19-fbf4_44876.auth'.
-Removing: '/tmp/e228-332f-3cf0-2cf6_44876.auth'.
-Removing: '/tmp/82f4-7751-f027-d669_44876.auth'.
-Removing: '/tmp/d016-dea9-2abe-19e9_44876.auth'.
-Removing: '/tmp/6afc-9b4d-d95b-d0b5_44876.auth'.
-Removing: '/tmp/2f14-d6a8-7f15-8581_44876.auth'.
-Removing: '/tmp/b5ce-7933-f2c8-476e_44876.auth'.
-Removing: '/tmp/7099-7dbd-cdfe-f0b3_44876.auth'.
-Removing: '/tmp/2db1-3650-55bc-92b2_44876.auth'.
-Removing: '/tmp/6020-06fa-59ed-66c1_44876.auth'.
-Removing: '/tmp/0dbc-c3ef-4c11-4502_44876.auth'.
+Removing: '/tmp/53f7-75eb-a33f-f7d8_17479.auth'.
+Removing: '/tmp/7ccb-109b-42bc-4726_17479.auth'.
+Removing: '/tmp/de75-26c1-e58f-fd44_17479.auth'.
+Removing: '/tmp/8fe0-e5f8-47da-28bb_17479.auth'.
+Removing: '/tmp/ac80-11f7-3512-3f31_17479.auth'.
+Removing: '/tmp/316e-2626-61f6-dc0a_17479.auth'.
+Removing: '/tmp/8b64-3a95-65ce-ad64_17479.auth'.
+Removing: '/tmp/2ef8-547d-3f7b-63ff_17479.auth'.
+Removing: '/tmp/c689-e76d-0924-85a2_17479.auth'.
+Removing: '/tmp/b017-d7ef-7351-8439_17479.auth'.
+Removing: '/tmp/74ec-0d27-8efb-b100_17479.auth'.
+Removing: '/tmp/5249-3c12-f8c2-8869_17479.auth'.
+Removing: '/tmp/a6d2-d0d5-8471-9704_17479.auth'.
+Removing: '/tmp/65d2-9c7d-6f13-7cb1_17479.auth'.
+Removing: '/tmp/ebd8-670f-fa06-3233_17479.auth'.
+Removing: '/tmp/8604-4823-12b2-3c3f_17479.auth'.
 Generating file "/project/detre/wtackett/Gears/vcid-asl-pipeline/vcid_asl_pipeline/for_testing/readme.txt".
 Generating file "/project/detre/wtackett/Gears/vcid-asl-pipeline/vcid_asl_pipeline/for_testing/run_vcid_asl_pipeline.sh".
 <font color=blue>Packaging...</font>
@@ -31,5 +31,5 @@ Creating the bundle...
 Creating the install agent URL file...
 Web based installer created at /project/detre/wtackett/Gears/vcid-asl-pipeline/vcid_asl_pipeline/for_redistribution/MyAppInstaller_web.install.
 Packaging complete.
-Elapsed packaging time was: 3 minutes and 10 seconds.
+Elapsed packaging time was: 3 minutes and 27 seconds.
 </pre></html>

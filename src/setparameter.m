@@ -2,7 +2,6 @@ function PAR=setparameter(datadir)
 
 
 PAR.codepath = pwd;
-cd ../Nifti
 PAR.dataroot = datadir;
 cd(PAR.codepath);
 
