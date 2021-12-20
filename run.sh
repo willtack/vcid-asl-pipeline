@@ -16,24 +16,24 @@ if [[ -z "$DATA_DIR" ]]; then
   exit 1
 fi
 
-#ls -Rl ${DATA_DIR}
-#ls -al
+ls -Rl ${DATA_DIR}
+ls -al
 
 # Run the Matlab executable
-# time ${CODE_DIR}/run_vcid_asl_pipeline.sh "${MCR_ROOT}" "${DATA_DIR}"
-#
-# # Check exit status
-# exit_status=$?
-# if [[ $exit_status != 0 ]]; then
-#   echo -e "$CONTAINER  An error occurred during execution of the Matlab executable. Exiting!"
-#   exit 1
-# fi
+time ${CODE_DIR}/run_vcid_asl_pipeline.sh "${MCR_ROOT}" "${DATA_DIR}"
+
+# Check exit status
+exit_status=$?
+if [[ $exit_status != 0 ]]; then
+  echo -e "$CONTAINER  An error occurred during execution of the Matlab executable. Exiting!"
+  exit 1
+fi
 
 # Move output files to dedicated folder
 mkdir -p "${OUTPUT_DIR}"/CoregFiles
-for SUB in $DATA_DIR/*; do
-  for SES in $SUB/*; do
-    for ASL_DIR in $SES/*ASL; do
+for SUB in $(find ${DATA_DIR} -maxdepth 1 -type d | grep HC); do
+  for SES in $(find ${SUB} -maxdepth 1 -type d | grep MR); do
+    for ASL_DIR in $(find ${SES} -type d | grep _ASL | grep -v TOF | grep -v HASL); do
       #echo $ASL_DIR
       # Save coregistration overlay pictures
       fName=$(basename $SUB)-$(basename $SES)-$(basename $ASL_DIR)_coreg.png
@@ -45,7 +45,7 @@ for SUB in $DATA_DIR/*; do
       # Copy ASL pipeline results to output directory
       NEW_DIR="${OUTPUT_DIR}"/$(basename $SUB)/$(basename $SES)
       mkdir -p ${NEW_DIR}
-      cp -r $(find ${DATA_DIR} -type d | grep _ASL) ${NEW_DIR}/
+      cp -r $(find ${ASL_DIR} -type f) ${NEW_DIR}/
     done
   done
 done
