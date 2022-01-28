@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM python:3.7
 MAINTAINER Will Tackett <william.tackett@pennmedicine.upenn.edu>
 
 # Prepare environment
@@ -37,9 +37,11 @@ RUN curl -sSL "http://neuro.debian.net/lists/$( lsb_release -c | cut -f2 ).us-ca
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-                    fsl-core=5.0.9-5~nd16.04+1 \
+#                    fsl-core=5.0.9-5~nd16.04+1 \
+                    fsl-core \
                     fsl-mni152-templates=5.0.7-2 \
-                    afni=16.2.07~dfsg.1-5~nd16.04+1 \
+                    afni \
+#                    afni=16.2.07~dfsg.1-5~nd16.04+1 \
                     git-annex-standalone && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

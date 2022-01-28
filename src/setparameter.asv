@@ -133,8 +133,8 @@ PAR.ASL.lambda = 0.9;
 PAR.ASL.T1blood = 1.65;
 PAR.ASL.alpha = 0.72;
 PAR.ASL.M0scale = 10;
-% PAR.ASL.PLD{1} = 1.8;
-% PAR.ASL.LabelingTime{1} = 1.8;
+PAR.ASL.PLD{1} = 1.8;
+PAR.ASL.LabelingTime{1} = 1.8;
 PAR.ASL.Slicetime = 0;
 
 PAR.nsubs = length(PAR.subject);
