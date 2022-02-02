@@ -123,7 +123,29 @@ for t = 1:length(subids)
         PAR.ASL.LabelingTime{ses} = 3.0;
         PAR.aslprefix{ses} = 'PCASL_LLbs31misvfa_3.0s_2.0s';
         PAR.M0prefix{ses} = 'M0_LLbs31misvfa_3.0s_2.0s';
-           
+       
+        
+        %
+        % EVERYTHING ELSE
+        %
+        tmpdir = dir(fullfile(PAR.dataroot,subids{t},dr(s).name,'ASL.nii.gz'));
+        if ~isempty(tmpdir)
+            PAR.subject(sb).asldir{ses} = fullfile(PAR.dataroot,subids{t},dr(s).name,tmpdir.name);
+        else
+%             PAR.subject(sb).asldir{ses} = [];
+        end
+        
+        tmpdir = dir(fullfile(PAR.dataroot,subids{t},dr(s).name,'M0.nii.gz'));
+        if ~isempty(tmpdir)
+            PAR.subject(sb).M0dir{ses} = fullfile(PAR.dataroot,subids{t},dr(s).name,tmpdir.name);
+        else
+%             PAR.subject(sb).M0dir{ses} = [];
+        end
+        
+        PAR.ASL.PLD{1} = 1.8;
+        PAR.ASL.LabelingTime{1} = 1.8;
+        PAR.aslprefix{ses} = 'ASL';
+        PAR.M0prefix{ses} = 'M0';
     end
     
 end
@@ -133,8 +155,6 @@ PAR.ASL.lambda = 0.9;
 PAR.ASL.T1blood = 1.65;
 PAR.ASL.alpha = 0.72;
 PAR.ASL.M0scale = 10;
-% PAR.ASL.PLD{1} = 1.8;
-% PAR.ASL.LabelingTime{1} = 1.8;
 PAR.ASL.Slicetime = 0;
 
 PAR.nsubs = length(PAR.subject);

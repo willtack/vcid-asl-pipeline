@@ -19,6 +19,8 @@ fi
 ls -Rl ${DATA_DIR}
 ls -al
 
+mkdir ${OUTPUT_DIR}
+
 # Run the Matlab executable
 time ${CODE_DIR}/run_vcid_asl_pipeline.sh "${MCR_ROOT}" "${DATA_DIR}"
 
