@@ -50,7 +50,7 @@ for subno = indx
         maskloc = my_spm_select('FPlist',PAR.subject(subno).asldir{sesno},'^rbk_mask.*nii');
         mask = spm_read_vols(spm_vol(maskloc))>0;
         
-        EPIloc = my_spm_select('FPlist',PAR.subject(subno).asldir{sesno},['^r' PAR.aslprefix{sesno} '.*nii']);
+        EPIloc = my_spm_select('FPlist',PAR.subject(subno).asldir{sesno},['^r' PAR.aslprefix{sesno} '.nii']); % .gz WT 02/04/2022
         v = spm_vol(EPIloc);
         EPI = spm_read_vols(v);
         
