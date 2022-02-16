@@ -63,17 +63,19 @@ ENV BASEDIR /opt/base
 RUN mkdir -p ${BASEDIR}
 
 # Install MCR. Install path: usr/local/MATLAB/MATLAB_Runtime/v99
-RUN mkdir /opt/mcr/
+RUN mkdir -p /opt/mcr/
 RUN wget -O /opt/mcr/mcr.zip http://ssd.mathworks.com/supportfiles/downloads/R2020b/Release/0/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2020b_glnxa64.zip
 RUN unzip /opt/mcr/mcr.zip -d opt/mcr
-RUN opt/mcr/install -mode silent -agreeToLicense yes
+RUN /opt/mcr/install -mode silent -agreeToLicense yes
 
 # Install libs
 RUN apt-get -y install libxmu6
+#ENV LD_LIBRARY_PATH="/usr/local/MATLAB/MATLAB_Runtime/v910/runtime/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v910/bin/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v910/sys/os/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v910/extern/bin/glnxa64:$LD_LIBRARY_PATH"
+ENV LD_LIBRARY_PATH="/usr/local/MATLAB/v99/runtime/glnxa64:/usr/local/MATLAB/v99/bin/glnxa64:/usr/local/MATLAB/v99/sys/os/glnxa64:/usr/local/MATLAB/v99/extern/bin/glnxa64:$LD_LIBRARY_PATH"
 
 # Copy stuff over & change permissions
 COPY . ${BASEDIR}/
-RUN chmod +x ${BASEDIR}/*
+RUN chmod -R 777 ${BASEDIR}
 
 # Configure entrypoints-
 ENTRYPOINT ["/bin/bash", "/opt/base/run.sh"]

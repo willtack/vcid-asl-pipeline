@@ -19,7 +19,7 @@ fi
 ls -Rl ${DATA_DIR}
 ls -al
 
-mkdir ${OUTPUT_DIR}
+mkdir -p ${OUTPUT_DIR}
 
 # Run the Matlab executable
 time ${CODE_DIR}/run_vcid_asl_pipeline.sh "${MCR_ROOT}" "${DATA_DIR}"
@@ -33,21 +33,21 @@ fi
 
 # Move output files to dedicated folder
 mkdir -p "${OUTPUT_DIR}"/CoregFiles
-for SUB in $(find ${DATA_DIR} -maxdepth 1 -type d | grep HC); do
-  for SES in $(find ${SUB} -maxdepth 1 -type d | grep MR); do
-    for ASL_DIR in $(find ${SES} -type d | grep _ASL | grep -v TOF | grep -v HASL); do
-      #echo $ASL_DIR
+for SUB in $(find ${DATA_DIR} -maxdepth 1 -type d | grep sub-); do
+  for SES in $(find ${SUB} -maxdepth 1 -type d | grep ses-); do
+    for ASL_DIR in $(find ${SES} -type d | grep ASL | grep -v TOF | grep -v HASL); do
+      echo $ASL_DIR
       # Save coregistration overlay pictures
       fName=$(basename $SUB)-$(basename $SES)-$(basename $ASL_DIR)_coreg.png
       coregFile=$(find ${ASL_DIR} -type f | grep png)
       if [[ -f $coregFile ]]; then
-        cp $coregFile "${DATA_DIR}"/CoregFiles/"${fName}"
+        cp $coregFile "${OUTPUT_DIR}"/CoregFiles/"${fName}"
       fi
 
       # Copy ASL pipeline results to output directory
       NEW_DIR="${OUTPUT_DIR}"/$(basename $SUB)/$(basename $SES)
       mkdir -p ${NEW_DIR}
-      cp -r $(find ${ASL_DIR} -type f) ${NEW_DIR}/
+      cp -r ${ASL_DIR}/* ${NEW_DIR}/
     done
   done
 done

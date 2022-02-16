@@ -1,0 +1,86 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="4056858487" file="/home/will/Gears/vcid-asl-pipeline/src/vcid_main.prj" location="/home/will/Gears/vcid-asl-pipeline/src" name="vcid_main" target="target.mlapps" target-name="Package App">
+    <param.appname>vcid_main</param.appname>
+    <param.authnamewatermark>Will Tackett, Sudipto Dolui</param.authnamewatermark>
+    <param.email>william.tackett@pennmedicine.upenn.edu</param.email>
+    <param.company>University of Pennsylvania</param.company>
+    <param.icon />
+    <param.icons />
+    <param.summary>Processes ASL data.</param.summary>
+    <param.description />
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms>
+      <item>glnxa64</item>
+      <item>win64</item>
+      <item>win32</item>
+      <item>maci64</item>
+    </param.platforms>
+    <param.output>/home/will/Gears/vcid-asl-pipeline/vcid_asl_pipeline910</param.output>
+    <param.guid>2c357601-3ffe-40af-ad30-7c3cb8b4b0aa</param.guid>
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.description />
+      <param.screenshot />
+      <param.version />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/vcid_main.m</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}/batch_CBF_computation.m</file>
+      <file>${PROJECT_ROOT}/batch_MNI_2_sub_masks.m</file>
+      <file>${PROJECT_ROOT}/batch_coreg_asl2MPRAGE.m</file>
+      <file>${PROJECT_ROOT}/batch_create_mask.m</file>
+      <file>${PROJECT_ROOT}/batch_extract_M0.m</file>
+      <file>${PROJECT_ROOT}/batch_fnirt.m</file>
+      <file>${PROJECT_ROOT}/batch_realign.m</file>
+      <file>${PROJECT_ROOT}/batch_reslice_CBF_t1space.m</file>
+      <file>${PROJECT_ROOT}/batch_segment.m</file>
+      <file>${PROJECT_ROOT}/batch_smooth_CBF.m</file>
+      <file>${PROJECT_ROOT}/check_epi_reg.m</file>
+      <file>${PROJECT_ROOT}/compress_nii_files.m</file>
+      <file>${PROJECT_ROOT}/fill_in_holes_inside_brain.m</file>
+      <file>${PROJECT_ROOT}/my_spm_select.m</file>
+      <file>${PROJECT_ROOT}/myimshow3D.m</file>
+      <file>${PROJECT_ROOT}/setparameter.m</file>
+      <file>${PROJECT_ROOT}/spm_read_niigz_vol.m</file>
+      <file>${PROJECT_ROOT}/spm_realign_asl.m</file>
+      <file>${MATLAB_ROOT}/toolbox/local/userpath.m</file>
+    </fileset.depfun>
+    <fileset.resources>
+      <file>/home/will/spm12</file>
+    </fileset.resources>
+    <fileset.package />
+    <build-deliverables>
+      <file location="/home/will/Gears/vcid-asl-pipeline" name="vcid_asl_pipeline910" optional="false">/home/will/Gears/vcid-asl-pipeline/vcid_asl_pipeline910</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/usr/local/MATLAB/R2021a</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>false</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>true</linux>
+      <solaris>false</solaris>
+      <osver>5.13.0-28-generic</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>glnxa64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
