@@ -5,4 +5,5 @@ Nifti
 output
 Nifti2
 test.sh
-
+build_and_deploy.sh
+test

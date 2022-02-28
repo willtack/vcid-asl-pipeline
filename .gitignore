@@ -3,3 +3,7 @@ vcid_asl_pipeline/for_redistribution
 Nifti
 output
 Nifti2
+test.sh
+build_and_deploy.sh
+test
+test/
