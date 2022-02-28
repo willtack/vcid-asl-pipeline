@@ -1,6 +1,9 @@
 FROM ubuntu:16.04
 MAINTAINER Will Tackett <william.tackett@pennmedicine.upenn.edu>
 
+#Remove expired LetsEncrypt cert
+ENV REQUESTS_CA_BUNDLE "/etc/ssl/certs/ca-certificates.crt"
+
 # Prepare environment
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -74,8 +77,52 @@ RUN apt-get -y install libxmu6
 ENV LD_LIBRARY_PATH="/usr/local/MATLAB/v99/runtime/glnxa64:/usr/local/MATLAB/v99/bin/glnxa64:/usr/local/MATLAB/v99/sys/os/glnxa64:/usr/local/MATLAB/v99/extern/bin/glnxa64:$LD_LIBRARY_PATH"
 
 # Copy stuff over & change permissions
-COPY . ${BASEDIR}/
+COPY neurodeb ${BASEDIR}/
+COPY vcid_asl_pipeline ${BASEDIR}/
+COPY run.sh ${BASEDIR}/
+COPY src ${BASEDIR}/
 RUN chmod -R 777 ${BASEDIR}
 
+
+### GEAR STUFF
+# Installing and setting up miniconda
+RUN curl -sSLO https://repo.continuum.io/miniconda/Miniconda3-4.5.11-Linux-x86_64.sh && \
+    bash Miniconda3-4.5.11-Linux-x86_64.sh -b -p /usr/local/miniconda && \
+    rm Miniconda3-4.5.11-Linux-x86_64.sh
+
+ENV PATH=/usr/local/miniconda/bin:$PATH \
+    LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    PYTHONNOUSERSITE=1
+
+# Installing precomputed python packages
+#RUN conda install -y python=3.7.1
+
+RUN pip install --upgrade pip
+RUN pip install 'flywheel-sdk==12.*'
+RUN pip install pybids
+RUN pip install --no-cache fw-heudiconv==0.3.3
+RUN pip install pathlib
+
+# Make directory for flywheel spec (v0)
+ENV FLYWHEEL /flywheel/v0
+RUN mkdir -p ${FLYWHEEL}
+
+# Install libs
+#RUN apt-get -y install libxmu6
+
+# Copy stuff over
+ENV FLYWHEEL /flywheel/v0
+RUN mkdir -p ${FLYWHEEL}
+COPY run.py ${FLYWHEEL}/run.py
+COPY manifest.json ${FLYWHEEL}/manifest.json
+RUN chmod 777 ${FLYWHEEL}/*
+RUN chmod 777 /opt/base/
+
+# ENV preservation for Flywheel Engine
+RUN env -u HOSTNAME -u PWD | \
+  awk -F = '{ print "export " $1 "=\"" $2 "\"" }' > ${FLYWHEEL}/docker-env.sh
+RUN chmod +x ${FLYWHEEL}/docker-env.sh
+
 # Configure entrypoints-
-ENTRYPOINT ["/bin/bash", "/opt/base/run.sh"]
+ENTRYPOINT ["python3 /flywheel/v0/run.py"]
