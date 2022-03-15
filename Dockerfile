@@ -1,8 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER Will Tackett <william.tackett@pennmedicine.upenn.edu>
 
-#Remove expired LetsEncrypt cert
-ENV REQUESTS_CA_BUNDLE "/etc/ssl/certs/ca-certificates.crt"
 
 # Prepare environment
 RUN apt-get update && \
@@ -28,9 +26,12 @@ RUN apt-get update && \
                     nodejs && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+#Remove expired LetsEncrypt cert
+RUN rm /usr/share/ca-certificates/mozilla/DST_Root_CA_X3.crt && \
+ update-ca-certificates
+ENV REQUESTS_CA_BUNDLE "/etc/ssl/certs/ca-certificates.crt"
 
 # Installing Neurodebian packages (FSL, AFNI, git)
-
 # Pre-cache neurodebian key
 COPY neurodeb/neurodebian.gpg /usr/local/etc/neurodebian.gpg
 
