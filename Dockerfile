@@ -79,9 +79,9 @@ ENV LD_LIBRARY_PATH="/usr/local/MATLAB/v99/runtime/glnxa64:/usr/local/MATLAB/v99
 
 # Copy stuff over & change permissions
 COPY neurodeb ${BASEDIR}/
-COPY vcid_asl_pipeline ${BASEDIR}/
+COPY vcid_asl_pipeline/ ${BASEDIR}/vcid_asl_pipeline/
 COPY run.sh ${BASEDIR}/
-COPY src ${BASEDIR}/
+#COPY src ${BASEDIR}/
 RUN chmod -R 777 ${BASEDIR}
 
 
