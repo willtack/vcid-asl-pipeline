@@ -156,7 +156,7 @@ def main():
 
 
     # run command
-    os.system(run_script)
+    #os.system(run_script)
 
     # transfer output files to gear output directtory
     os.system("cp -r /opt/base/output/* {}".format(gear_output_dir))

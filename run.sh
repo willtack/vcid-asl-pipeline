@@ -8,7 +8,7 @@ echo -e "$CONTAINER  Initiated"
 DATA_DIR=/opt/base/input
 OUTPUT_DIR=/opt/base/output
 MCR_ROOT=/usr/local/MATLAB/MATLAB_Runtime/v99/
-CODE_DIR=/opt/base/vcid_asl_pipeline/for_redistribution_files_only
+CODE_DIR=/opt/base/vcid_asl_pipeline/
 
 # Check for required inputs
 if [[ -z "$DATA_DIR" ]]; then
@@ -21,8 +21,18 @@ ls -al
 
 mkdir -p ${OUTPUT_DIR}
 
+# Start SPM executable
+echo RUNNING SPM EXECUTABLE
+pushd /opt/base/spm_exec
+./run_spm12.sh "${MCR_ROOT}" &
+popd
+
+
 # Run the Matlab executable
-time ${CODE_DIR}/run_vcid_asl_pipeline.sh "${MCR_ROOT}" "${DATA_DIR}"
+echo RUNNING MATLAB PROGRAM
+pushd ${CODE_DIR}
+./run_vcid_main.sh "${MCR_ROOT}" "${DATA_DIR}"
+popd
 
 # Check exit status
 exit_status=$?

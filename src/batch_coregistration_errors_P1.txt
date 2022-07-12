@@ -1,0 +1,2 @@
+Error in coregistration with P1
+Function GUNZIP was unable to find file ''/home/will/Gears/vcid-asl-pipeline/test/local/P1/ses1/ASL_01/ASL2MPRAGE_P1_img.nii.gz''.

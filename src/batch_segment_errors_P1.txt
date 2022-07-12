@@ -1,0 +1,2 @@
+Error in segmentation in /home/will/Gears/vcid-asl-pipeline/test/local/P1/ASL_01
+Function GUNZIP expected FILES to be nonempty.

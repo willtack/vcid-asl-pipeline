@@ -2,7 +2,7 @@ function vcid_main(datadir)
 
 % add FSL to libraries
 setenv('LD_LIBRARY_PATH',[getenv('LD_LIBRARY_PATH')  ':/usr/lib/fsl/5.0']);
-getenv('LD_LIBRARY_PATH')
+getenv('LD_LIBRARY_PATH');
 PAR = setparameter(datadir); % specify where the data is located. this is the only param for now, but there could be others, e.g. slicetime, etc.
 
 batch_segment(PAR); % Segment the anatomical images.
